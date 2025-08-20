@@ -1,0 +1,51 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::arn:aws:s3:::reactapplications3bucket/*"
+            ]
+        }
+    ]
+}
+
+    https://github.com/javahometech/reactjs-app.git
+    
+    https://youtu.be/IRzjOvoB5sw?si=BSAVUzB0N6ni8nDp
+   
+    pipeline {
+    agent any
+    tools {
+       nodejs 'nodejs'
+    } 
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git url:"https://github.com/javahometech/reactjs-app/",branch:"main"
+            }
+        }
+        stage('NPM Install') {
+            steps {
+                sh "npm install"
+            }
+        }
+         stage('S3 Deploy') {
+            steps {
+                sh "aws s3 sync dist/" s3://
+            }
+        }
+        
+        }
+        
+        
+    }
+
+
+
+    
