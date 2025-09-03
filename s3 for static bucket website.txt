@@ -9,7 +9,7 @@
                 "s3:GetObject"
             ],
             "Resource": [
-                "arn:aws:s3:::arn:aws:s3:::reactapplications3bucket/*"
+                "arn:aws:s3:::reactapplications3bucket/*"
             ]
         }
     ]
@@ -45,6 +45,7 @@
         
         
     }
+
 
 
 
